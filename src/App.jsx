@@ -6,10 +6,18 @@ import _Axios from "axios"
 const Axios = _Axios.create({
   baseURL: "http://localhost:3001",
 })
+
+/*
+type ShopItem = {
+  id: string
+  itemName: string
+  price: number
+}
+type CartItem = ShopItem & { quantity: number }
+*/
 const App = () => {
   const [shopItems, setShopItems] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-
   const [cartItems, setCartItems] = useState([])
 
   const handleAddToCart = (itemId: string) => {
