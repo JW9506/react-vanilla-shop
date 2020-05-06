@@ -18,6 +18,20 @@ type CartItem = ShopItem & { quantity: number }
 const App = () => {
   const [shopItems, setShopItems] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    ;(async () => {
+      try {
+        setIsLoading(true)
+        const { data } = await Axios.get("/api")
+        setShopItems(data)
+        setIsLoading(false)
+      } catch (error) {
+        console.error(error)
+      }
+    })()
+  }, [])
+
   const [cartItems, setCartItems] = useState([])
 
   const handleAddToCart = (itemId: string) => {
