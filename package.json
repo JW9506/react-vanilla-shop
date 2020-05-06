@@ -11,6 +11,7 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
+    "dev": "concurrently --kill-others-on-fail \"yarn mock-server\" \"yarn start\"",
     "mock-server": "json-server db.json -p 3001 -w --delay 1000",
     "start": "react-scripts start",
     "build": "react-scripts build",
